@@ -1,0 +1,14 @@
+<p>question-list works!</p>
+
+<div>
+  <div *ngFor="let question of questions">
+    <h4>{{question.content}}</h4>
+    <label>Sí</label>
+    <input name="{{question.tag}}" type="radio" [value]="true" (change)="onSelectionChange(question)" />
+
+    <label>No</label>
+    <input name="{{question.tag}}" type="radio" [value]="false" (change)="onDeselectionChange(question)" />
+  </div>
+  <br>
+  <button (click)="submit()">Solicitar Diagnóstico</button>
+</div>
