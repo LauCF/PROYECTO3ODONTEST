@@ -16,3 +16,5 @@ export class AppComponent {
     this.sessionService.logout().subscribe();
   }
 }
+
+

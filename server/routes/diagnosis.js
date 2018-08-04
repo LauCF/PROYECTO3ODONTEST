@@ -2,16 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Diagnosis = require("../models/Diagnosis");
 
-//Create New Diagnosis
+// Recibir array de tags (strings) del OdonTest
+// Recibir Diagnostico de la funcion checkTags
+// Crear un nuevo DiagUser en BDD
+
 router.post("/", (req, res, next) => {
   console.log(req.body);
 
   const tagsRecibidos = req.body;
+
   const diagnostico = checkTags(tagsRecibidos);
-  /* const newDiagnosis = new Diaguser({
-    user: {type: Schema.Types.ObjectId, ref="User"},
-    diagnosis: {type: Schema.Types.ObjectId, ref="Diagnosis"}
-  }); */
+ 
   newDiaguser.save(err => {
     if (err) {
       return res.status(500).json(err);
@@ -24,17 +25,11 @@ router.post("/", (req, res, next) => {
   });
 });
 
-router.get("/", (req, res, next) => {
-  Diagnosis.find().then(data => {
-    console.log(data);
-  });
-});
-
+//Obtener Diagnostico: encontrar coincidencias y devolver diagnostico de coincidencias maxima
 function checkTags(tagsRecibidos) {
-  /* objeto: {
-    coincidencias: diagnosis
-  } */
+ 
   let objeto = {};
+
   Diagnosis.find().then(data => {
     let coincidencias = 0;
     data.forEach(e => {
@@ -47,17 +42,23 @@ function checkTags(tagsRecibidos) {
         }
       }
       objeto[coincidencias] = e;
-    })
+    });
   });
 
-  // buscar coincidencia maxima
+  //Buscar coincidencia máxima
 
-  // devolverla
+  //Devolver coincidencia máxima
 }
-//   tagsasociados.forEach(function(e) {
-//   tagsRecibidos.forEach(function(j) {
-//     return coindidencias++
-//   })
-// });
-
 module.exports = router;
+
+// NOTAS
+ /* const newDiagnosis = new Diaguser({
+    user: {type: Schema.Types.ObjectId, ref="User"},
+    diagnosis: {type: Schema.Types.ObjectId, ref="Diagnosis"}
+  }); */
+
+  // router.get("/", (req, res, next) => {
+//   Diagnosis.find().then(data => {
+//     console.log(data);
+//   });
+// });

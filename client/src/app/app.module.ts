@@ -6,13 +6,14 @@ import { routes } from './routes';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { SessionService } from '../services/session';
 import { QuestionService } from '../services/question';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { QuestionService } from '../services/question';
     LoginComponent,
     ProfileComponent,
     QuestionListComponent,
-    DiagnosisComponent
+    DiagnosisComponent,
+    HomeComponent
   ],
 
   imports: [
