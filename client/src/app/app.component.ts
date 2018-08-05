@@ -1,5 +1,24 @@
+// import { Component } from '@angular/core';
+// import { SessionService } from '../services/session';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+
+// export class AppComponent {
+//   title = 'app';
+  
+//   constructor(public sessionService:SessionService) { }
+
+//   logout(){
+//     this.sessionService.logout().subscribe();
+//   }
+// }
+
+
 import { Component } from '@angular/core';
-import { SessionService } from '../services/session';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +28,6 @@ import { SessionService } from '../services/session';
 
 export class AppComponent {
   title = 'app';
-  
-  constructor(public sessionService:SessionService) { }
-
-  logout(){
-    this.sessionService.logout().subscribe();
-  }
 }
 
 

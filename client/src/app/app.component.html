@@ -1,3 +1,4 @@
+<!-- ORIGINAL
 <div style="text-align:center">
   <h1 *ngIf="!sessionService.user">Welcome to {{title}}!</h1>
   <h1 *ngIf="sessionService.user">Welcome {{sessionService.user.username}}!</h1>
@@ -14,3 +15,30 @@
 </div>
 
 <router-outlet></router-outlet>
+
+CON BOOSTRAP
+<nav class="navbar fixed-top navbar-light bg-light">
+  
+  <a [routerLink]="['/']" class="nav-title"><i class="fas fa-paw"></i>OdonTest</a>
+
+  <div *ngIf="sessionService.user" class="nav-link">
+    <h1>Welcome {{sessionService.user.username}}!</h1>
+    <a [routerLink]="['/']">Home</a>
+    <a class="navbar-brand" [routerLink]="['/question-list']"><i class="fas fa-user"></i>OdonTest</a>
+    <a class="navbar-brand" (click)="logout()">Salir</a>
+  </div>
+
+  <div *ngIf="!sessionService.user">
+    <a class="navbar-brand" [routerLink]="['/signup']">Registrarse</a>
+    <a class="navbar-brand" [routerLink]="['/login/']">Acceder</a>
+  </div>
+
+</nav> -->
+
+<header>
+    <app-nav-bar></app-nav-bar>
+</header>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer></footer>

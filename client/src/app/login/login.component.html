@@ -1,12 +1,31 @@
-<p>login works!</p>
-
-<form>
+<!-- <div class="login-container">
   <h2>Login</h2>
-  <label>Username</label>
-  <input type="text" [(ngModel)]="username" name="username"/>
-  <br>
-  <label>Password</label>
-  <input type="password" [(ngModel)]="password" name="password"/>
-  <button (click)="login(username,password)"> login </button>
-</form>
-<p class="error"> {{error}} </p>
+  <form>
+    <div class="login">
+      <label>Username</label>
+      <input type="text" [(ngModel)]="username" name="username" />
+    </div>
+    <div class="login">
+      <label>Password</label>
+      <input type="password" [(ngModel)]="password" name="password" />
+    </div>
+    <button (click)="login(username,password)" class="btn btn-outline-signup">Login</button>
+  </form>
+  <p class="error">{{error}}</p>
+</div> -->
+
+<div class="login-container">
+  <form>
+    <h2>LogIn</h2>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" [(ngModel)]="username" name="username" placeholder="Enter Username">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" [(ngModel)]="password" name="password" placeholder="Enter Password">
+    </div>
+    <button type="submit" (click)="login(username, password)" class="btn btn-primary">Acceder</button>
+  </form>
+  <p class="error">{{error}}</p>
+</div>

@@ -1,2 +1,42 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Roboto');
+@import url('https://fonts.googleapis.com/css?family=Concert+One|Montserrat');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: black;
+} */
+
+h1 {
+  font-family: 'Concert One', cursive;
+  font-size: 3.8rem;
+  color: white;
+  line-height: 2.8rem;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.6rem;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5rem;
+}
+
+a {
+  font-family: 'Montserrat', sans-serif;
+  color: orangered;
+}

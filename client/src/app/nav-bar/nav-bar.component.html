@@ -1,0 +1,43 @@
+<!-- <nav>
+<div style="text-align:center">
+    <h1 *ngIf="!sessionService.user">Welcome to {{title}}!</h1>
+    <h1 *ngIf="sessionService.user">Welcome {{sessionService.user.username}}!</h1>
+  </div>
+  
+  <div>
+    <ul>
+      <li><a [routerLink]="['/']">Home</a></li>
+      <li *ngIf="!sessionService.user"><a [routerLink]="['/signup']">SignUp</a></li>
+      <li *ngIf="!sessionService.user"><a [routerLink]="['/login']">LogIn</a></li>
+      <li *ngIf="sessionService.user"><a [routerLink]="['/question-list']">OdonTest</a></li>
+      <li *ngIf="sessionService.user"><a href="#" (click)="logout()">LogOut</a></li>
+    </ul>
+  </div>
+</nav> -->
+
+<nav class="navbar navbar-light bg-light">
+
+    <a [routerLink]="['/']" class="navbar-brand" href="#">
+        <img src="../../assets/images/logonegro.png" width="50" class="d-inline-block align-top" alt="">
+      </a>
+  
+    <div *ngIf="sessionService.user" class="nav-link">
+      <!-- <h1>Welcome {{sessionService.user.username}}!</h1> -->
+      <a class="navbar-brand" [routerLink]="['/']">Home</a>
+      <a class="navbar-brand" [routerLink]="['/question-list']">OdonTest</a>
+      <a class="navbar-brand" (click)="logout()">Salir</a>
+    </div>
+  
+    <div *ngIf="!sessionService.user">
+      <a class="navbar-brand" [routerLink]="['/signup']">Registrarse</a>
+      <a class="navbar-brand" [routerLink]="['/login/']">Acceder</a>
+    </div>
+  
+  </nav>
+
+<!-- Just an image -->
+<!-- <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+    </a>
+  </nav> -->

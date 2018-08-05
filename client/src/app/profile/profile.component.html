@@ -1,3 +1,15 @@
 <p>
   profile works!
 </p>
+
+<h3 class="profile-container">Hola Usuario Logueado</h3>
+
+<div class="profile-container">
+  <h1 *ngIf="!sessionService.user">Welcome to {{title}}!</h1>
+  <h1 *ngIf="sessionService.user">Welcome {{sessionService.user.username}}!</h1>
+</div>
+
+<div *ngIf="user">
+  <p>{{user.username}}</p>
+</div>
+

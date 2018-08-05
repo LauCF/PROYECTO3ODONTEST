@@ -14,6 +14,7 @@ import { DiagnosisComponent } from './diagnosis/diagnosis.component';
 import { SessionService } from '../services/session';
 import { QuestionService } from '../services/question';
 import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     ProfileComponent,
     QuestionListComponent,
     DiagnosisComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent
   ],
 
   imports: [
