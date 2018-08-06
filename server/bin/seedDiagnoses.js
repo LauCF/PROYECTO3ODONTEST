@@ -1,52 +1,55 @@
 require('dotenv').config();
 
-const mongoose = require('mongoose');
-const Diagnosis = require('../models/Diagnosis');
-// const shared = require('../shared.js')
+const mongoose = require("mongoose");
+const Diagnosis = require("../models/Diagnosis");
+const shared = require('../shared');
 
-mongoose.connect(process.env.DBURL).then( () =>  console.log('connected to DB from seedDiagnoses'));
+mongoose.connect(process.env.DBURL).then(() => {
+  console.log("connected to DB from seedDiagnoses");
 
-Diagnosis.collection.drop();
-
-const diagnoses = [
-    {
+  Diagnosis.collection.drop().then(() => {
+    const diagnoses = [
+      {
         pathology: "Pulpitis",
-        tagsasociados: ["Dolor"],
+        tagsasociados: [shared.dolor],
         treatment: "Endodoncia",
         tips: "Tips para Pulpitis"
-    },
-    {
+      },
+      {
         pathology: "Periodontitis",
-        tagsasociados: ["Movilidad"],
+        tagsasociados: [shared.movilidad],
         treatment: "Raspado y alisado radicular",
         tips: "Tips para Periodontitis"
-    },
-    {
+      },
+      {
         pathology: "Gingivitis",
-        tagsasociados: ["Sangrado"],
+        tagsasociados: [shared.sangrado],
         treatment: "Limpieza",
         tips: "Tips para Gingivitis"
-    },
-    {
+      },
+      {
         pathology: "Bruxismo",
-        tagsasociados: ["Desgaste"],
+        tagsasociados: [shared.desgaste],
         treatment: "Férula de descarga",
-        tips: "Tips para Bruxismo",
-    },
-    {
+        tips: "Tips para Bruxismo"
+      },
+      {
         pathology: "Sensibilidad",
-        tagsasociados: ["Sensibilidad"],
+        tagsasociados: [shared.sensibilidad],
         treatment: "Corregir causas",
         tips: "Tips para Sensibilidad"
-    },
-]
+      }
+    ];
 
-Diagnosis.insertMany(diagnoses)
-   .then(() => {
-       console.log('diagnoses Added!');
-       mongoose.disconnect();
-   })
-   .catch(err => {
-       console.log(err);
-       mongoose.disconnect();
-   })
+    Diagnosis.insertMany(diagnoses)
+      .then(() => {
+        console.log("diagnoses Added!");
+        mongoose.disconnect();
+      })
+      .catch(err => {
+        console.log(err);
+        mongoose.disconnect();
+      });
+  });
+})
+.catch(err => console.log(err));

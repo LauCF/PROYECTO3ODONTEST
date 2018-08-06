@@ -17,27 +17,20 @@
 
 <nav class="navbar navbar-light bg-light">
 
-    <a [routerLink]="['/']" class="navbar-brand" href="#">
-        <img src="../../assets/images/logonegro.png" width="50" class="d-inline-block align-top" alt="">
-      </a>
-  
-    <div *ngIf="sessionService.user" class="nav-link">
-      <!-- <h1>Welcome {{sessionService.user.username}}!</h1> -->
-      <a class="navbar-brand" [routerLink]="['/']">Home</a>
-      <a class="navbar-brand" [routerLink]="['/question-list']">OdonTest</a>
-      <a class="navbar-brand" (click)="logout()">Salir</a>
-    </div>
-  
-    <div *ngIf="!sessionService.user">
-      <a class="navbar-brand" [routerLink]="['/signup']">Registrarse</a>
-      <a class="navbar-brand" [routerLink]="['/login/']">Acceder</a>
-    </div>
-  
-  </nav>
+  <a [routerLink]="['/']" class="navbar-brand" href="#">
+    <img src="../../assets/images/logonegro.png" width="40" class="d-inline-block align-top" alt="">
+  </a>
 
-<!-- Just an image -->
-<!-- <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="#">
-      <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-    </a>
-  </nav> -->
+  <div *ngIf="sessionService.user" class="nav-link">
+    <!-- <h1>Welcome {{sessionService.user.username}}!</h1> -->
+    <a class="navbar-brand" [routerLink]="['/']">Home</a>
+    <a class="navbar-brand" [routerLink]="['/question-list']">OdonTest</a>
+    <a class="navbar-brand" href="#" (click)="logout()">LogOut</a>
+  </div>
+
+  <div *ngIf="!sessionService.user">
+    <a class="navbar-brand" [routerLink]="['/signup']">SignUp</a>
+    <a class="navbar-brand" [routerLink]="['/login/']">LogIn</a>
+  </div>
+
+</nav>

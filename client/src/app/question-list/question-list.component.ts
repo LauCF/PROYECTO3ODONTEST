@@ -1,3 +1,4 @@
+import { SessionService } from './../../services/session';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { QuestionService } from '../../services/question';
@@ -15,11 +16,12 @@ export class QuestionListComponent implements OnInit {
   answers_yes = [];
   answers_no = [];
 
-  constructor(private questionService: QuestionService, private router:Router) {
+  constructor(private questionService: QuestionService, private SessionService: SessionService, private router:Router) {
     this.getAll();
    }
 
   ngOnInit() {
+    this.SessionService.isLogged().subscribe(()=>{}) 
   }
 
   getAll() {

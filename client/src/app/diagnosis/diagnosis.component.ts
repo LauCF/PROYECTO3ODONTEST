@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from '../../services/session';
 
 @Component({
   selector: 'app-diagnosis',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiagnosisComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessionService: SessionService, private router: Router) { }
 
   ngOnInit() {
   }
 
 }
+

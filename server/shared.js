@@ -1,18 +1,9 @@
-module.exports =  
-    [
-      { 
-        tagname: 'dolor',
-      },
-      { 
-        tagname: 'movilidad',
-      },
-      { 
-        tagname: 'sangrado',
-      },
-      { 
-        tagname: 'desgaste',
-      },
-      { 
-        tagname: 'sensibilidad'
-      }
-    ]
+const tags = {
+  dolor: "dolor",
+  movilidad: "movilidad",
+  sangrado: "sangrado",
+  desgaste: "desgaste",
+  sensibilidad: "sensibilidad"
+};
+
+module.exports = tags;

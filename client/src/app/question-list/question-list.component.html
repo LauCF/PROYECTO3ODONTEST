@@ -2,7 +2,7 @@
 
 <div>
   <div *ngFor="let question of questions">
-    <h4>{{question.content}}</h4>
+    <p>{{question.content}}</p>
     <label>Sí</label>
     <input name="{{question.tag}}" type="radio" [value]="true" (change)="onSelectionChange(question)" />
 
