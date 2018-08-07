@@ -13,16 +13,17 @@ router.post("/", (req, res, next) => {
   // console.log(tagsRecibidos);
 
   //Si no se reciben tags: se recupera y guarda el diagnóstico Boca Sana
-  // Diagnosis.findOne({})
+  // Diagnosis.findOne()
   // .then(diagnosis => {
-  // if (tagsRecibidos === 0) {
-  //   router.get("/:id", (req, res, next) => {
-  //     Phone.findById(req.params.id)
-  //       .then(object => res.json(object))
-  //       .catch(e => next(e));
-  //   });
+  //   if (tagsRecibidos === 0) {
+  //     diaguser
+  //       .save()
+  //       .then(diag => res.status(200).json(diag))
+  //       .catch(err => res.status(500).json(err));
+  //   } else {
   //Lo que ya está hecho
-  // } else {}
+  //   }
+  // });
     
   checkTags(tagsRecibidos).then(idDiagnostico => {
     console.log(idDiagnostico);
@@ -83,15 +84,3 @@ function checkTags(tagsRecibidos) {
   });
 }
 module.exports = router;
-
-// NOTAS
-/* const newDiagnosis = new Diaguser({
-    user: {type: Schema.Types.ObjectId, ref="User"},
-    diagnosis: {type: Schema.Types.ObjectId, ref="Diagnosis"}
-  }); */
-
-// router.get("/", (req, res, next) => {
-//   Diagnosis.find().then(data => {
-//     console.log(data);
-//   });
-// });
