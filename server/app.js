@@ -103,6 +103,8 @@ app.use('/api/auth', authRoutes);
 app.use("/question", require("./routes/question"));
 
 app.use("/diagnosis", require("./routes/diagnosis"));
+
+app.use((req, res) => req.sendFile(__dirname+'./public/index.html'));
       
 module.exports = app;
 
