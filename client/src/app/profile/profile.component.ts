@@ -8,6 +8,8 @@ import { SessionService } from '../../services/session';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  
+  user: any;
 
   constructor(
     public sessionService: SessionService, 
