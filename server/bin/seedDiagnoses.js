@@ -38,6 +38,12 @@ mongoose.connect(process.env.DBURL).then(() => {
         tagsasociados: [shared.sensibilidad],
         treatment: "Corregir causas",
         tips: "Tips para Sensibilidad"
+      },
+      {
+        pathology: "¡Boca Sana!",
+        tagsasociados: [],
+        treatment: "No necesitas ningún tratamiento",
+        tips: "Tips para Boca Sana"
       }
     ];
 

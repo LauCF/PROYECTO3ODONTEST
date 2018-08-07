@@ -66,7 +66,7 @@ router.get('/currentuser', (req,res,next) => {
   }
 })
 
-router.get('/logout', (req,res) => {
+router.get('/logout', (req, res, next) => {
   req.logout();
   res.status(200).json({message:'logged out'})
 });

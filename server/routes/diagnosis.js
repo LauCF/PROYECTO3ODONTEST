@@ -10,7 +10,20 @@ const Diaguser = require("../models/Diaguser");
 router.post("/", (req, res, next) => {
 
   const tagsRecibidos = req.body;
+  // console.log(tagsRecibidos);
 
+  //Si no se reciben tags: se recupera y guarda el diagnóstico Boca Sana
+  // Diagnosis.findOne({})
+  // .then(diagnosis => {
+  // if (tagsRecibidos === 0) {
+  //   router.get("/:id", (req, res, next) => {
+  //     Phone.findById(req.params.id)
+  //       .then(object => res.json(object))
+  //       .catch(e => next(e));
+  //   });
+  //Lo que ya está hecho
+  // } else {}
+    
   checkTags(tagsRecibidos).then(idDiagnostico => {
     console.log(idDiagnostico);
     
