@@ -60,7 +60,7 @@ export class QuestionListComponent implements OnInit {
     console.log(this.answers_yes);
     this.questionService
       .answersYes(this.answers_yes)
-      .subscribe((diaguser:Id) => this.router.navigate(['/diagnosis', diaguser._id ]) );
+      .subscribe((diaguser:Id) => this.router.navigate(['/diagnosis', diaguser._id]) );
   }
 }
 

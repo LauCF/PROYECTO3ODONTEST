@@ -23,17 +23,26 @@ h1 {
 h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
+  color: black;
   margin-bottom: 15px;
 }
 
 h3 {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.6rem;
+  color: black;
+}
+
+h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  color: black;
 }
 
 p {
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5rem;
+  color: black;
 }
 
 a {

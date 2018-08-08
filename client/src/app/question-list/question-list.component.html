@@ -1,8 +1,6 @@
-<p>question-list works!</p>
-
-<div>
+<div class="questionlist-container">
   <div *ngFor="let question of questions">
-    <p>{{question.content}}</p>
+    <h4>{{question.content}}</h4>
     <label>Sí</label>
     <input name="{{question.tag}}" type="radio" [value]="true" (change)="onSelectionChange(question)" />
 
@@ -10,5 +8,5 @@
     <input name="{{question.tag}}" type="radio" [value]="false" (change)="onDeselectionChange(question)" />
   </div>
   <br>
-  <button (click)="submit()">Solicitar Diagnóstico</button>
-</div>
+  <!-- <button (click)="submit()">Solicitar Diagnóstico</button> -->
+  <button type="button" class="btn btn-outline-info" (click)="submit()">Solicitar Diagnóstico</button>

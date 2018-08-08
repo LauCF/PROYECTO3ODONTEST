@@ -8,56 +8,55 @@ const Diaguser = require("../models/Diaguser");
 // Crear un nuevo DiagUser en BDD
 
 router.post("/", (req, res, next) => {
-
   const tagsRecibidos = req.body;
   //console.log(tagsRecibidos);
-  
+
   //Si no se reciben tags: se recupera y guarda el diagnóstico Boca Sana
   if (tagsRecibidos.length === 0) {
-  Diagnosis.find({pathology: "¡Boca Sana!"})
-  .then(diagnosis => {
-    let newDiaguser = new Diaguser({
-      user: req.user._id,
-      diagnosis: diagnosis[0]._id
-    });
-    newDiaguser.save(err => {
-      if (err) {return this.http
-        .post(`${BASEURL}/diagnosis`, answers, this.options)
-        .pipe(map(res => res.json()));
-  
-        return res.status(500).json(err);
-      }
-      if (newDiaguser.errors) {
-        return res.status(400).json(newDiaguser);
-      }
+    Diagnosis.find({ pathology: "¡Boca Sana!" }).then(diagnosis => {
+      let newDiaguser = new Diaguser({
+        user: req.user._id,
+        diagnosis: diagnosis[0]._id
+      });
+      newDiaguser.save(err => {
+        if (err) {
+          return this.http
+            .post(`${BASEURL}/diagnosis`, answers, this.options)
+            .pipe(map(res => res.json()));
 
-      return res.status(200).json(newDiaguser);
+          return res.status(500).json(err);
+        }
+        if (newDiaguser.errors) {
+          return res.status(400).json(newDiaguser);
+        }
+
+        return res.status(200).json(newDiaguser);
+      });
+      console.log(diagnosis[0]);
+
+      //Lo que ya está hecho
     });
-    console.log(diagnosis[0]);
-    
-  //Lo que ya está hecho
-    })
   } else {
-    
-  checkTags(tagsRecibidos).then(idDiagnostico => {
-    /* console.log(idDiagnostico);
+    checkTags(tagsRecibidos).then(idDiagnostico => {
+      /* console.log(idDiagnostico);
     
     console.log(req.user); */
-    let newDiaguser = new Diaguser({
-      user: req.user._id,
-      diagnosis: idDiagnostico
-    });
-    newDiaguser.save(err => {
-      if (err) {
-        return res.status(500).json(err);
-      }
-      if (newDiaguser.errors) {
-        return res.status(400).json(newDiaguser);
-      }
+      let newDiaguser = new Diaguser({
+        user: req.user._id,
+        diagnosis: idDiagnostico
+      });
+      newDiaguser.save(err => {
+        if (err) {
+          return res.status(500).json(err);
+        }
+        if (newDiaguser.errors) {
+          return res.status(400).json(newDiaguser);
+        }
 
-      return res.status(200).json(newDiaguser);
+        return res.status(200).json(newDiaguser);
+      });
     });
-  });}
+  }
 });
 
 //Buscar coincidencias máximas
@@ -102,7 +101,10 @@ router.get("/:id", (req, res, next) => {
   Diaguser.findById(req.params.id)
     .populate("user")
     .populate("diagnosis")
-    .then(diag => {console.log(diag); return res.json(diag)})
+    .then(diag => {
+      console.log(diag);
+      return res.json(diag);
+    })
     .catch(e => next(e));
 });
 
