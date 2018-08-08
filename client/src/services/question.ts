@@ -20,9 +20,15 @@ export class QuestionService {
   }
 
   answersYes(answers) {
-    console.log(answers);
     return this.http
       .post(`${BASEURL}/diagnosis`, answers, this.options)
       .pipe(map(res => res.json()));
   }
+
+  get(id) {
+    return this.http
+      .get(`${BASEURL}/diagnosis/${id}`)
+      .pipe(map(res => res.json()));
+  }
+  
 }

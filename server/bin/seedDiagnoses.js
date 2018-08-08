@@ -56,6 +56,7 @@ mongoose.connect(process.env.DBURL).then(() => {
         console.log(err);
         mongoose.disconnect();
       });
-  });
+  })
+  .catch(err => console.log(err));
 })
 .catch(err => console.log(err));

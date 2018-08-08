@@ -10,25 +10,39 @@ const Diaguser = require("../models/Diaguser");
 router.post("/", (req, res, next) => {
 
   const tagsRecibidos = req.body;
-  // console.log(tagsRecibidos);
-
+  //console.log(tagsRecibidos);
+  
   //Si no se reciben tags: se recupera y guarda el diagnóstico Boca Sana
-  // Diagnosis.findOne()
-  // .then(diagnosis => {
-  //   if (tagsRecibidos === 0) {
-  //     diaguser
-  //       .save()
-  //       .then(diag => res.status(200).json(diag))
-  //       .catch(err => res.status(500).json(err));
-  //   } else {
+  if (tagsRecibidos.length === 0) {
+  Diagnosis.find({pathology: "¡Boca Sana!"})
+  .then(diagnosis => {
+    let newDiaguser = new Diaguser({
+      user: req.user._id,
+      diagnosis: diagnosis[0]._id
+    });
+    newDiaguser.save(err => {
+      if (err) {return this.http
+        .post(`${BASEURL}/diagnosis`, answers, this.options)
+        .pipe(map(res => res.json()));
+  
+        return res.status(500).json(err);
+      }
+      if (newDiaguser.errors) {
+        return res.status(400).json(newDiaguser);
+      }
+
+      return res.status(200).json(newDiaguser);
+    });
+    console.log(diagnosis[0]);
+    
   //Lo que ya está hecho
-  //   }
-  // });
+    })
+  } else {
     
   checkTags(tagsRecibidos).then(idDiagnostico => {
-    console.log(idDiagnostico);
+    /* console.log(idDiagnostico);
     
-    console.log(req.user);
+    console.log(req.user); */
     let newDiaguser = new Diaguser({
       user: req.user._id,
       diagnosis: idDiagnostico
@@ -43,7 +57,7 @@ router.post("/", (req, res, next) => {
 
       return res.status(200).json(newDiaguser);
     });
-  });
+  });}
 });
 
 //Buscar coincidencias máximas
@@ -83,4 +97,13 @@ function checkTags(tagsRecibidos) {
       .catch(err => reject(err));
   });
 }
+
+router.get("/:id", (req, res, next) => {
+  Diaguser.findById(req.params.id)
+    .populate("user")
+    .populate("diagnosis")
+    .then(diag => {console.log(diag); return res.json(diag)})
+    .catch(e => next(e));
+});
+
 module.exports = router;

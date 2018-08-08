@@ -22,5 +22,6 @@ export class ProfileComponent implements OnInit {
   logout() {
     this.sessionService.logout().subscribe();
   }
+  
 }
 
