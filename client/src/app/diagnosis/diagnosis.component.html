@@ -1,12 +1,20 @@
-<div *ngIf="diaguser" class="diagnosis-container">
-  <h3>{{diaguser.user.username}} este es el resultado de tu OdonTest:</h3>
-  <p>Posible Diagnóstico:</p>
-  <p>{{diaguser.diagnosis.pathology}}</p>
-  <p>Tratamiento:</p>
-  <p>{{diaguser.diagnosis.treatment}}</p>
-  <p>Información y Consejos:</p>
-  <p>{{diaguser.diagnosis.tips}}:</p>
-  <div>
-    <a [routerLink]="['/profile']">Ir a tu perfil</a>
+<div class="container" *ngIf="diaguser">
+  <div class="link">
+    <a [routerLink]="['/profile']">IR A TU PERFIL</a>
+  </div>
+  <div class="title-container">
+    <h2>Este es el resultado de tu OdonTest {{diaguser.user.username}}</h2>
+  </div>
+  <div class="diagnosis-container">
+    <h3>Posible Diagnóstico: </h3>
+    <h4>{{diaguser.diagnosis.pathology}}</h4>
+  </div>
+  <div class="diagnosis-container">
+    <h3>Tratamiento: </h3>
+    <h4>{{diaguser.diagnosis.treatment}}</h4>
+  </div>
+  <div class="diagnosis-container">
+    <h3>Información y Consejos: </h3>
+    <h4>{{diaguser.diagnosis.tips}}</h4>
   </div>
 </div>

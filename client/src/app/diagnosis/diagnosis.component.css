@@ -1,10 +1,21 @@
-.diagnosis-container {
-  padding: 0;
-  margin: 0;
+.title-container {
+  padding: 50px 0 0 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: left;
+  justify-content: space-around;
   align-content: center;
-  height: 90vh;
+}
+
+.link {
+  padding: 50 50 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: right;
+}
+
+.diagnosis-container {
+  padding: 50 0 50 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
