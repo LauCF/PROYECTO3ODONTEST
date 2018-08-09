@@ -1,15 +1,25 @@
-/* .container{
-  padding: 50px 0 0 0;
-} */
-
-.questionlist-container {
-  padding: 50px 0 0 0;
-  margin: 0;
+.container{
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  text-align: center;
+  margin-top: 15px;
+  padding: 15px;
+}
+
+.questionlist-container{
   align-content: center;
-  height: 90vh;
+  width: 100vW;
+}
+
+.tab-content {
+  width: 100vw;
+  margin-top: 25px;
+}
+
+.nav-item{
+  margin: 0 auto;
 }
 
 .nav-pills .nav-link {
