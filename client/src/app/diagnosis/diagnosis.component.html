@@ -1,4 +1,4 @@
-<div class="container" *ngIf="diaguser">
+<!-- <div *ngIf="diaguser">
   <div class="link">
     <a [routerLink]="['/profile']">IR A TU PERFIL</a>
   </div>
@@ -16,5 +16,30 @@
   <div class="diagnosis-container">
     <h3>Información y Consejos: </h3>
     <h4>{{diaguser.diagnosis.tips}}</h4>
+  </div>
+</div> -->
+
+<div class="container">
+  <div *ngIf="diaguser" class="card profile-container-2">
+    <div class="card-img-cont">
+      <img class="card-img-top" src="../../assets/images/typeodont.jpg" alt="Card image cap">
+    </div>
+    <div class="right">
+      <div class="card-body">
+        <h5 class="card-title">Posible Diagnóstico:</h5>
+        <p *ngIf="diaguser.diagnosis" class="card-text">{{diaguser.diagnosis.pathology}}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Tratamiento:</h5>
+        <p *ngIf="diaguser.diagnosis" class="card-text">{{diaguser.diagnosis.treatment}}</p>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Información y Consejos:</h5>
+        <p *ngIf="diaguser.diagnosis" class="card-text">{{diaguser.diagnosis.tips}}</p>
+      </div>
+      <div class="card-body">
+        <a [routerLink]="['/profile']" class="card-link">IR A HISTORIAL TU DIAGNÓSTICO</a>
+      </div>
+    </div>
   </div>
 </div>

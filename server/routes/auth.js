@@ -3,6 +3,7 @@ const router  = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const passport = require('passport');
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 const login = (req, user) => {
   return new Promise((resolve,reject) => {
@@ -17,7 +18,7 @@ const login = (req, user) => {
 }
 
 // SIGNUP
-router.post('/signup', (req, res, next) => {
+router.post('/signup', ensureLoggedOut(), (req, res, next) => {
 
   const {username, password, email} = req.body;
 
@@ -45,7 +46,7 @@ router.post('/signup', (req, res, next) => {
   .catch(e => next(e));
 });
 
-router.post('/login', (req, res, next) => {
+router.post('/login', ensureLoggedOut(), (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
     
     // Check for errors
@@ -66,7 +67,7 @@ router.get('/currentuser', (req,res,next) => {
   }
 })
 
-router.get('/logout', (req, res, next) => {
+router.get('/logout', ensureLoggedIn(), (req, res, next) => {
   req.logout();
   res.status(200).json({message:'logged out'})
 });

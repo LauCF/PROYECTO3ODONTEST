@@ -1,10 +1,17 @@
+/* .container{
+  padding: 50px 0 0 0;
+} */
+
 .questionlist-container {
-  padding: 0;
+  padding: 50px 0 0 0;
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
   align-content: center;
   height: 90vh;
+}
+
+.nav-pills .nav-link {
+  pointer-events: none;
 }

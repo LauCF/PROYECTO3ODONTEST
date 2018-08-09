@@ -1,6 +1,6 @@
 <div class="profile-container">
   <div>
-    <h2 *ngIf="sessionService.user">Historial de Diagnósticos de {{sessionService.user.username}}</h2>
+    <h2 *ngIf="sessionService.user">Historial Diagnóstico de {{sessionService.user.username}}</h2>
   </div>
 </div>
 
@@ -19,7 +19,7 @@
     <a [routerLink]="['/diagnosis', diaguser._id]" class="btn btn-outline-primary">Ver este Dianóstico</a>
   </div>
   <div class="card-footer text-muted">
-    <p>{{diaguser.created_at}}</p>
+    <p>{{diaguser.created_at|date}}</p>
   </div>
 </div>
 </div>

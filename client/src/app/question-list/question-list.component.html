@@ -1,12 +1,41 @@
+<!-- <a [routerLink]="['/profile']">IR A TU HISTORIAL DIAGNÓSTICO</a>
 <div class="questionlist-container">
   <div *ngFor="let question of questions">
     <h4>{{question.content}}</h4>
     <label>Sí</label>
     <input name="{{question.tag}}" type="radio" [value]="true" (change)="onSelectionChange(question)" />
-
     <label>No</label>
     <input name="{{question.tag}}" type="radio" [value]="false" (change)="onDeselectionChange(question)" />
   </div>
-  <br>
-  <!-- <button (click)="submit()">Solicitar Diagnóstico</button> -->
-  <button type="button" class="btn btn-outline-info" (click)="submit()">Solicitar Diagnóstico</button>
+   -->
+
+<div>
+  <a [routerLink]="['/profile']">IR A TU HISTORIAL DIAGNÓSTICO</a>
+</div>
+
+<div>
+  <div>
+    <ul class="nav nav-pills mb-3" id="question-tab" role="tablist">
+      <li class="nav-item" *ngFor="let question of questions; let i=index">
+        <a [ngClass]="{'nav-link': true, 'active': activeTab === i}" id="pregunta-{{i}}-tab" data-toggle="pill" href="#pregunta-{{i}}"
+          role="tab" attr.aria-controls="pregunta-{{i}}" aria-selected="true">Pregunta {{i+1}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content" id="pills-tabContent">
+    <div *ngFor="let question of questions; let i=index" [ngClass]="{'tab-pane fade': true, 'show active': activeTab === i}"
+      id="pregunta-{{i}}" role="tabpanel" aria-labelledby="pills-home-tab">
+      <p>{{question.content}}</p>
+      <label>Sí</label>
+      <input name="{{question.tag}}" type="radio" [value]="true" (change)="onSelectionChange(question)" />
+      <label>No</label>
+      <input name="{{question.tag}}" type="radio" [value]="false" (change)="onDeselectionChange(question)" />
+      <div *ngIf="activeTab>0">
+        <p (click)="goToPrevious()">Volver a la pregunta anterior</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="testFinished">
+      <button type="button" class="btn btn-outline-primary" (click)="submit()">Solicitar Diagnóstico</button>
+  </div>
+</div>

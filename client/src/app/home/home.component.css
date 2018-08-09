@@ -8,6 +8,8 @@
   align-items: center;
   justify-content: space-around;
   align-content: center;
-  background: linear-gradient(135deg,#00C4FF,#9D1BB2);
+  background-image: url("../../assets/images/smile.jpg");
+  background-size: cover;
+  /* background: linear-gradient(135deg,#00C4FF,#9D1BB2); */
   height: 90vh;
 }
